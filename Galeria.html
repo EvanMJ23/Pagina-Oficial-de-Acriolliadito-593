@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Pollito Amarillito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff3cd;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffc107;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilos para la ventana modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Galería de Pollito Amarillito
+    </header>
+
+    <main class="container">
+        <h2>Jaulas</h2>
+        <p>Aquí puedes ver algunas de nuestras instalaciones con sus pollos.</p>
+
+        <div class="gallery">
+            <img src="pollos3.jpg" alt="Pollo fresco 1" onclick="mostrarImagen(this)">
+            <img src="pollos4.jpg" alt="Pollo fresco 2" onclick="mostrarImagen(this)">
+            <img src="pollos5.jpg" alt="Pollo fresco 3" onclick="mostrarImagen(this)">
+            <img src="pollos6.jpg" alt="Pollo fresco 4" onclick="mostrarImagen(this)">
+            <img src="pollos7.jpeg" alt="Pollo fresco 5" onclick="mostrarImagen(this)">
+            <img src="pollos8.jpg" alt="Pollo fresco 6" onclick="mostrarImagen(this)">
+            <img src="pollos9.jpg" alt="Pollo fresco 7" onclick="mostrarImagen(this)">
+            <img src="pollos10.jpg" alt="Pollo fresco 8" onclick="mostrarImagen(this)">
+            <img src="pollos11.jpg" alt="Pollo fresco 9" onclick="mostrarImagen(this)">
+        </div>
+    </main>
+
+    <!-- Modal para ver la imagen en grande -->
+    <div id="modal" class="modal" onclick="cerrarModal()">
+        <span class="close">&times;</span>
+        <img id="imagenModal">
+    </div>
+
+    <script>
+        function mostrarImagen(img) {
+            var modal = document.getElementById("modal");
+            var imagenModal = document.getElementById("imagenModal");
+            imagenModal.src = img.src;
+            modal.style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
