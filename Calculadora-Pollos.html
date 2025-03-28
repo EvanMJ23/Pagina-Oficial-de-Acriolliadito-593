@@ -12,12 +12,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: auto;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px 0;
         }
         .container {
-            width: 80%;
-            max-width: 600px;
+            width: 70%;
+            max-width: 500px;
             background: rgb(231, 216, 123);
             padding: 20px;
             border-radius: 10px;
@@ -34,43 +36,39 @@
 <body>
     <div class="container">
         <h6>＼(^o^)／</h6>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h2 aria-setsize="100vh">Acriolliadito 593</h2>
+        <h2 aria-setsize="100vh">Pollito Amarillo</h2>
         <label for="pollos">Número de pollos:</label>
         <input type="number" id="pollos" value="50">
         <button onclick="calcularAlimento()">Calcular</button>
         <h3>Resultados:</h3>
         <div id="resultados"></div>
-    <div>
-        <p style="color:darkgoldenrod ;">
-            ¡LLAMA AL MEJOR POLLO DEL ECUADOR! </p>
-        <p style="color:rgba(160, 163, 11, 0.804) ;"> 
-            Presiona la imagen
-        </p>
-        <a target="_blank" href="index.html"><img src="Pollos 2.jpeg" 
-            alt="¡LLAMA AL MEJOR POLLO EL ECU!" width="100" height="100" /></a>
-    </div>
+        <div>
+            <p style="color:darkgoldenrod ;">
+                ¡LLAMA AL MEJOR POLLO DEL ECUADOR!
+            </p>
+            <p style="color:rgba(160, 163, 11, 0.804) ;"> 
+                Presiona la imagen
+            </p>
+            <a target="_blank" href="index.html">
+                <img src="Pollos 2.jpeg" alt="¡LLAMA AL MEJOR POLLO EL ECU!" width="100" height="100" />
+            </a>
+        </div>
     </div>
     
-
     <script>
         function calcularAlimento() {
             let pollos = parseInt(document.getElementById("pollos").value);
             let fases = [
                 { nombre: "Pre-Inicial (1-4 días)", factor: 0.04, dias: 4, costo: 0.70 },
-                { nombre: "Inicial Fase 1 (5-9 días)", factor: 0.1, dias: 5 },
-                { nombre: "Inicial Fase 2 (10-15 días)", factor: 0.12, dias: 6 },
-                { nombre: "Inicial Fase 3 (16-23 días)", factor: 0.2, dias: 8 },
-                { nombre: "Crecimiento-Engorde (24-31 días)", factor: 0.3, dias: 8 },
-                { nombre: "Crecimiento-Engorde 2 (32-41 días)", factor: 0.36, dias: 10 },
-                { nombre: "Mezclado (42-45 días)", factor: 0.36, dias: 4 }
+                { nombre: "Inicial Fase 1 (5-9 días)", factor: 0.14, dias: 5 },
+                { nombre: "Inicial Fase 2 (10-15 días)", factor: 0.16, dias: 6 },
+                { nombre: "Inicial Fase 3 (16-23 días)", factor: 0.24, dias: 8 },
+                { nombre: "Crecimiento-Engorde (24-31 días)", factor: 0.35, dias: 8 },
+                { nombre: "Crecimiento-Engorde 2 (32-41 días)", factor: 0.40, dias: 10 },
+                { nombre: "Mezclado (42-45 días)", factor: 0.41, dias: 4 }
             ];
             let costoPorLibra = 0.42;
-            let costoPreInicial = 0.70; // Nuevo costo para Pre-Inicial
+            let costoPreInicial = 0.70;
             let totalDinero = 0;
             let resultadosHTML = "";
 
@@ -85,16 +83,11 @@
                                    Costo total: $${costoTotal.toFixed(2)}</p>`;
             });
 
+            let totalLibras = totalDinero / costoPorLibra;
             resultadosHTML += `<h3>Total gastado en 45 días: $${totalDinero.toFixed(2)}</h3>`;
+            resultadosHTML += `<h3>Total de libras consumidas: ${totalLibras.toFixed(2)} lb</h3>`;
             document.getElementById("resultados").innerHTML = resultadosHTML;
         }
     </script>
-<br>
-<br>
-<br>
-<br>
-<br>
-<article>
-</article>
 </body>
 </html>
